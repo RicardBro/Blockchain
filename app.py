@@ -80,18 +80,22 @@ with col1:
         animation_placeholder = st.empty()
         progress_bar = st.progress(0)
         
+        # Constantes para la animación de minado
+        UPDATE_FREQUENCY = 1000  # Actualizar cada 1000 intentos
+        PROGRESS_CYCLE_SIZE = 50000  # Ciclo de progreso visual
+        MAX_MINING_ATTEMPTS = 1000000  # Límite máximo de intentos
+        
         # Proceso de minado con animación
         target = "0" * blockchain.difficulty
         attempts = 0
-        update_frequency = 1000  # Actualizar cada 1000 intentos
         
-        while new_block.hash[:blockchain.difficulty] != target:
+        while new_block.hash[:blockchain.difficulty] != target and attempts < MAX_MINING_ATTEMPTS:
             new_block.nonce += 1
             new_block.hash = new_block.calculate_hash()
             attempts += 1
             
             # Actualizar cada ciertos intentos
-            if attempts % update_frequency == 0:
+            if attempts % UPDATE_FREQUENCY == 0:
                 animation_placeholder.code(f"""
 Nonce: {new_block.nonce}
 Hash: {new_block.hash}
@@ -99,8 +103,18 @@ Target: {target}{'.' * (32 - len(target))}
 Intentos: {attempts:,}
                 """)
                 # Mostrar progreso basado en el número de intentos (estimación)
-                progress_estimate = min((attempts % 50000) / 50000, 0.99)
+                progress_estimate = min((attempts % PROGRESS_CYCLE_SIZE) / PROGRESS_CYCLE_SIZE, 0.99)
                 progress_bar.progress(progress_estimate)
+        
+        # Verificar si se alcanzó el límite sin encontrar solución
+        if attempts >= MAX_MINING_ATTEMPTS:
+            animation_placeholder.error(f"""
+❌ Error de Minado
+Se alcanzó el límite de {MAX_MINING_ATTEMPTS:,} intentos sin encontrar un hash válido.
+Intenta reducir la dificultad.
+            """)
+            st.session_state.mining_animation = False
+            st.stop()
         
         # Finalizar minado
         blockchain.chain.append(new_block)

@@ -1,7 +1,6 @@
 import hashlib
-import time
 from datetime import datetime
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Tuple
 
 
 class Block:
@@ -120,7 +119,7 @@ class Blockchain:
         
         return new_block
     
-    def is_chain_valid(self) -> tuple[bool, str]:
+    def is_chain_valid(self) -> Tuple[bool, str]:
         """
         Valida la integridad de toda la blockchain.
         

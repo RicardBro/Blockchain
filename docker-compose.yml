@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  api:
+    build: ./api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+  ui:
+    build: ./ui
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+  miner:
+    build: ./miner
+    depends_on:
+      - api
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M

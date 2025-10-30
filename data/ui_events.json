@@ -1,0 +1,42 @@
+[
+  [
+    1761619407,
+    "Claim creado: 887116f4-72a9-45bc-a439-0c28b96619d8 (txs=1)"
+  ],
+  [
+    1761619407,
+    "Force_mine arrancado (inflight): 887116f4-72a9-45bc-a439-0c28b96619d8"
+  ],
+  [
+    1761619407,
+    "Miner finished claim 887116f4-72a9-45bc-a439-0c28b96619d8 -> block 58 (attempts=5217)"
+  ],
+  [
+    1761619518,
+    "Claim creado: 6672090c-3f3c-44b0-8529-2e40308d3648 (txs=1)"
+  ],
+  [
+    1761620407,
+    "Claim creado: 34c0912a-c323-4420-be41-655d913db18c (txs=1)"
+  ],
+  [
+    1761621192,
+    "Claim creado: 95c01d22-91d1-44b1-bbe5-78f3f8328fcd (txs=1)"
+  ],
+  [
+    1761621249,
+    "Claim creado: 6e776dbd-db80-471f-8f6e-9e52c17be2bc (txs=1)"
+  ],
+  [
+    1761621249,
+    "Force_mine arrancado (inflight): 6e776dbd-db80-471f-8f6e-9e52c17be2bc"
+  ],
+  [
+    1761621249,
+    "Miner finished claim 6e776dbd-db80-471f-8f6e-9e52c17be2bc -> block 62 (attempts=624)"
+  ],
+  [
+    1761621412,
+    "Claim creado: fbefee69-9ba2-4cb4-91b1-b28d9b396431 (txs=1)"
+  ]
+]

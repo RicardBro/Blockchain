@@ -14,6 +14,10 @@ class Blockchain:
     def create_genesis_block(self) -> Block:
         genesis = Block(index=0, timestamp=time.strftime("%Y-%m-%dT%H:%M:%S", time.gmtime()), txs=[], prev_hash="0", nonce=0)
         genesis.hash = genesis.compute_hash()
+        # annotate genesis with difficulty so clients can read mining cost
+        g = genesis.to_dict()
+        g["difficulty"] = self.difficulty
+        # store Block instance but keep difficulty accessible via chain[0].difficulty when exported
         self.chain = [genesis]
         return genesis
 
@@ -82,7 +86,11 @@ class Blockchain:
         import json
 
         with open(path, "w", encoding="utf-8") as f:
-            json.dump([b.to_dict() for b in self.chain], f, ensure_ascii=False, indent=2)
+            arr = [b.to_dict() for b in self.chain]
+            # include difficulty on first block for readers
+            if arr:
+                arr[0]["difficulty"] = self.difficulty
+            json.dump(arr, f, ensure_ascii=False, indent=2)
 
     def import_from_json(self, path: str) -> None:
         import json

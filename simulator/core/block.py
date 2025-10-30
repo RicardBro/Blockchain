@@ -1,5 +1,6 @@
 import json
 from typing import List, Optional
+import hashlib
 
 
 class Block:
@@ -30,6 +31,7 @@ class Block:
             "index": self.index,
             "timestamp": self.timestamp,
             "txs": self.txs,
+            "merkle_root": self.merkle_root() if hasattr(self, 'merkle_root') else None,
             "prev_hash": self.prev_hash,
             "nonce": self.nonce,
         }
@@ -47,3 +49,24 @@ class Block:
             nonce=d.get("nonce", 0),
             hash=d.get("hash"),
         )
+
+    def merkle_root(self) -> Optional[str]:
+        """Compute a simple Merkle root over the TXs (hash of tx JSON canonical). Returns hex str or None."""
+        try:
+            if not self.txs:
+                return None
+            leaves = []
+            for tx in self.txs:
+                s = json.dumps(tx, sort_keys=True, separators=(",",":"), ensure_ascii=False)
+                leaves.append(hashlib.sha256(s.encode('utf-8')).hexdigest())
+            # build up the tree
+            while len(leaves) > 1:
+                if len(leaves) % 2 == 1:
+                    leaves.append(leaves[-1])
+                new = []
+                for i in range(0, len(leaves), 2):
+                    new.append(hashlib.sha256((leaves[i] + leaves[i+1]).encode('utf-8')).hexdigest())
+                leaves = new
+            return leaves[0]
+        except Exception:
+            return None

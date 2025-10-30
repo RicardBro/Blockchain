@@ -1,0 +1,548 @@
+[
+  {
+    "state": "test",
+    "ts": 123
+  },
+  {
+    "state": "mining",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "txs": 1,
+    "nonce": 0,
+    "hash": "47a730a26daabca962b25ae50bc6f20a69b0967198d692a5757a786c6fb81b3f",
+    "attempts": 0,
+    "difficulty": 3,
+    "ts": 1761621192
+  },
+  {
+    "state": "mining",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "txs": 1,
+    "nonce": 100,
+    "hash": "18ecb528152987f07c0cd9ebc973f667ee3a120994a8f2b4f95ec2719a682cad",
+    "attempts": 100,
+    "difficulty": 3,
+    "ts": 1761621192
+  },
+  {
+    "state": "mining",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "txs": 1,
+    "nonce": 200,
+    "hash": "4bc0ae0dec04328e1d2ec563d3beb4d6647211e3dd2fbed3f44b4f873c53462c",
+    "attempts": 200,
+    "difficulty": 3,
+    "ts": 1761621192
+  },
+  {
+    "state": "mining",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "txs": 1,
+    "nonce": 300,
+    "hash": "c45300d90a4e0f83a6b83da329653885fd7a524a70c35bff43293750d883fe66",
+    "attempts": 300,
+    "difficulty": 3,
+    "ts": 1761621192
+  },
+  {
+    "state": "mining",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "txs": 1,
+    "nonce": 400,
+    "hash": "7399ec2fb5f58337d94e0d605fcfdec15f0d330f9c614e565e5f202052ceab7c",
+    "attempts": 400,
+    "difficulty": 3,
+    "ts": 1761621192
+  },
+  {
+    "state": "mining",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "txs": 1,
+    "nonce": 500,
+    "hash": "296a7c60c1978d9bd5a2a2a369ca00da54b162fb6ff70a3960c5df8dd3b8074d",
+    "attempts": 500,
+    "difficulty": 3,
+    "ts": 1761621192
+  },
+  {
+    "state": "mining",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "txs": 1,
+    "nonce": 600,
+    "hash": "ae37532b4158b895b32cd1890a01585fdedfc6f60d014ef57e5bba6baa279c8e",
+    "attempts": 600,
+    "difficulty": 3,
+    "ts": 1761621192
+  },
+  {
+    "state": "mining",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "txs": 1,
+    "nonce": 700,
+    "hash": "12df6401e4fa2cc17c287546d6db0f2ca446567afe9b5d2d9d525a0c368bcc3a",
+    "attempts": 700,
+    "difficulty": 3,
+    "ts": 1761621192
+  },
+  {
+    "state": "mining",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "txs": 1,
+    "nonce": 800,
+    "hash": "af3de61e9682aaf43296243c8c85b8e1991ad9e9d1da75a0682167883be019cf",
+    "attempts": 800,
+    "difficulty": 3,
+    "ts": 1761621192
+  },
+  {
+    "state": "mining",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "txs": 1,
+    "nonce": 900,
+    "hash": "2221515517a353a703679198230d9e7aa4fb237f19887b3cbb8fcd3af14fa5d2",
+    "attempts": 900,
+    "difficulty": 3,
+    "ts": 1761621192
+  },
+  {
+    "state": "mining",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "txs": 1,
+    "nonce": 1000,
+    "hash": "b73c0616f9ae492f4ec888f9446b9d668ae71e401e6818bc7dc524a2c5253f5d",
+    "attempts": 1000,
+    "difficulty": 3,
+    "ts": 1761621192
+  },
+  {
+    "state": "mining",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "txs": 1,
+    "nonce": 1100,
+    "hash": "22afa5c5df8d8f373785c8e9027922320d3e11689873d4326db6853d2567f968",
+    "attempts": 1100,
+    "difficulty": 3,
+    "ts": 1761621192
+  },
+  {
+    "state": "mining",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "txs": 1,
+    "nonce": 1200,
+    "hash": "123b3140f105b63400a2257b547e8a94667d68c2ce4eced8ed6fc0027350d491",
+    "attempts": 1200,
+    "difficulty": 3,
+    "ts": 1761621192
+  },
+  {
+    "state": "mining",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "txs": 1,
+    "nonce": 1300,
+    "hash": "7f3d711ab5f48734c6175dcbaed9ee79aa2958ce67d0f1973f0b0c123e193830",
+    "attempts": 1300,
+    "difficulty": 3,
+    "ts": 1761621192
+  },
+  {
+    "state": "mining",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "txs": 1,
+    "nonce": 1400,
+    "hash": "5d328563540635b22dceb66f936a8184b090fcdba07b06a6f56663b4c17e76f8",
+    "attempts": 1400,
+    "difficulty": 3,
+    "ts": 1761621192
+  },
+  {
+    "state": "mining",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "txs": 1,
+    "nonce": 1500,
+    "hash": "c830ff2010b6d26ba4f23bacd500a5978bb9f00026e905c052594cfe473426b7",
+    "attempts": 1500,
+    "difficulty": 3,
+    "ts": 1761621192
+  },
+  {
+    "state": "done",
+    "claim_id": "95c01d22-91d1-44b1-bbe5-78f3f8328fcd",
+    "block_index": 61,
+    "hash": "00030340ef4afeae3e1d44c5211694c8fdab25e874e14bb1a1ba220cca8b6294",
+    "attempts": 1569,
+    "ts": 1761621192
+  },
+  {
+    "state": "mining",
+    "claim_id": "6e776dbd-db80-471f-8f6e-9e52c17be2bc",
+    "txs": 1,
+    "nonce": 0,
+    "attempts": 0,
+    "ts": 1761621249
+  },
+  {
+    "state": "mining",
+    "claim_id": "6e776dbd-db80-471f-8f6e-9e52c17be2bc",
+    "txs": 1,
+    "nonce": 0,
+    "hash": "d9e813392f0eb07920a78733f8cf363fb6e9cfeda42be08fb8a9d580a22d9d81",
+    "attempts": 1,
+    "difficulty": 3,
+    "ts": 1761621249
+  },
+  {
+    "state": "mining",
+    "claim_id": "6e776dbd-db80-471f-8f6e-9e52c17be2bc",
+    "txs": 1,
+    "nonce": 100,
+    "hash": "b7deabaa0a4e5f17b67a5e4cfd7f7fad53054a9faf5d1ddbfe0a45510a82086e",
+    "attempts": 101,
+    "difficulty": 3,
+    "ts": 1761621249
+  },
+  {
+    "state": "mining",
+    "claim_id": "6e776dbd-db80-471f-8f6e-9e52c17be2bc",
+    "txs": 1,
+    "nonce": 200,
+    "hash": "5022048027a52a4ed6a6ec8a0f4cb5a4cac889c777ac98ef4d30b1aba8864837",
+    "attempts": 201,
+    "difficulty": 3,
+    "ts": 1761621249
+  },
+  {
+    "state": "mining",
+    "claim_id": "6e776dbd-db80-471f-8f6e-9e52c17be2bc",
+    "txs": 1,
+    "nonce": 300,
+    "hash": "d7d102e9f28813baa4a6d910360895820dc8cc15546f10466b324aec8e809527",
+    "attempts": 301,
+    "difficulty": 3,
+    "ts": 1761621249
+  },
+  {
+    "state": "mining",
+    "claim_id": "6e776dbd-db80-471f-8f6e-9e52c17be2bc",
+    "txs": 1,
+    "nonce": 400,
+    "hash": "23de8cbe785f39b4e622d91d201a1951a679ee1831f8fb8618309365c754ed26",
+    "attempts": 401,
+    "difficulty": 3,
+    "ts": 1761621249
+  },
+  {
+    "state": "mining",
+    "claim_id": "6e776dbd-db80-471f-8f6e-9e52c17be2bc",
+    "txs": 1,
+    "nonce": 500,
+    "hash": "20c6e419ec485b1c8127317e9ec6d7d1f9d5c0343c0a2ace4a5678a3c2b897db",
+    "attempts": 501,
+    "difficulty": 3,
+    "ts": 1761621249
+  },
+  {
+    "state": "mining",
+    "claim_id": "6e776dbd-db80-471f-8f6e-9e52c17be2bc",
+    "txs": 1,
+    "nonce": 600,
+    "hash": "b50082008dedbb1fa522b614739c1917d11abc24d4c6f314b2eef44548b77a8c",
+    "attempts": 601,
+    "difficulty": 3,
+    "ts": 1761621249
+  },
+  {
+    "state": "done",
+    "claim_id": "6e776dbd-db80-471f-8f6e-9e52c17be2bc",
+    "block_index": 62,
+    "hash": "000a7496a0dcbbac31f887026deb957322135c7b58ea9fedf705b625b40b65ba",
+    "attempts": 624,
+    "ts": 1761621249
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 0,
+    "hash": "32c6ac71145a9652e8be1dd213eb8763f964f8d4372ae70f267f944137cafb87",
+    "attempts": 0,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 100,
+    "hash": "c9f48887016dd6267b5eb27c0190ed814e70db1adbfb90ef656fac63ada3c74c",
+    "attempts": 100,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 200,
+    "hash": "2a5ceb29ea2374bdb513b0859a3c7ecf014a4c1fa9eb4e95a3a4c31e5aecd5f6",
+    "attempts": 200,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 300,
+    "hash": "3962aa4307db477a8b9b1de9b1f151668499501d23663d0819bc20e2d277d1ce",
+    "attempts": 300,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 400,
+    "hash": "f76fb3f1c388cc31aa1dcdcdfdd37136504ff8eb6a6653669f34af539eb63f79",
+    "attempts": 400,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 500,
+    "hash": "011dc997e1377d55fc61ec275d668e69a3e11239aa63c5d43629fcd437b95fc5",
+    "attempts": 500,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 600,
+    "hash": "02ea93f9178fdd0d166a96b5ab145a932bef85f245715a886d4a2d5531231609",
+    "attempts": 600,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 700,
+    "hash": "f717696d5be59e822bf4e18f1c3d30f7bf5823d266e73b43e44c14e29a69544b",
+    "attempts": 700,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 800,
+    "hash": "fe83eb5e6200dc6c56fa3d73ba2f5a1eecbf9345d3fc0c55e9c26869d4d44953",
+    "attempts": 800,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 900,
+    "hash": "3445f8a04937e787adc3e5411bee08dde6ea32aa81f64166e4539830cc84c7ec",
+    "attempts": 900,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 1000,
+    "hash": "d441ea33ac33f3e3e3e3c44b02d2816d11c4bfd427060d2232da97c846c34942",
+    "attempts": 1000,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 1100,
+    "hash": "4667add078b2695d98cd8fba90bcd6259c5a0bec90d54a6955145d338b1b215a",
+    "attempts": 1100,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 1200,
+    "hash": "a25b5c9d69e5a15415fd448bf2dde87a0f81656cecbeace47cd520d6bfbc3628",
+    "attempts": 1200,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 1300,
+    "hash": "1f5e8bdbb75ea9ecb0491253c2b92711ae97948efe36673079bdca49c58472af",
+    "attempts": 1300,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 1400,
+    "hash": "fef41549a2e285cdd2520040dae7eb3e6e961cda9495c3124bba33f6dceb1096",
+    "attempts": 1400,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 1500,
+    "hash": "ae73eb87f2be2a2aa479a84000edfef5bffc0ed0386f1aae53b76ba7e84eaaed",
+    "attempts": 1500,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 1600,
+    "hash": "a6d7d4280727e0f36a4de8277c0e8fc2945b2f807b5500d2aa1d2d92115e5614",
+    "attempts": 1600,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 1700,
+    "hash": "5cf545d73ef75c522b47dabdece7e1c1db8e4d7adc05278a828cd11b69b7854f",
+    "attempts": 1700,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 1800,
+    "hash": "7a9367f87fba5d940bfacf29d67fa0a91a24cfd44133fa3705f19e9a8f70dbf3",
+    "attempts": 1800,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 1900,
+    "hash": "907e1ebc93cde0d5617874212357e868eb01ea1378ea09819e29f86e6ac5d6c1",
+    "attempts": 1900,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 2000,
+    "hash": "26ee859e6ec2db36751c59831b051ad4e8c5be06cc26a595723c979ce3f664f5",
+    "attempts": 2000,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 2100,
+    "hash": "3f8436bae691ce4ba5da5e39247fb6ec7d0bc9b9f3b5c37507c0658170bfec07",
+    "attempts": 2100,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 2200,
+    "hash": "b152f61a72d2cc64e24ecc9202b377f633de2f34c9bc1c004d7733c908641ae0",
+    "attempts": 2200,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 2300,
+    "hash": "277c9629900b647bffd13cabf791f6ade4d83cbd92bc8e7ded5f65d308a94aec",
+    "attempts": 2300,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 2400,
+    "hash": "f4f18ead5f0fcfea492dcf4e1bd5529022e69ec64868b305d35feb6a130ebeba",
+    "attempts": 2400,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 2500,
+    "hash": "9dacd43d559b7392feb73740b8eb8463ce8349c04b9b06c50a39528c6ff460fa",
+    "attempts": 2500,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 2600,
+    "hash": "378102d80dcbcde5f19465c4e2127fd61e7c03a344dd0fc5fe3283a6126e05f5",
+    "attempts": 2600,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "mining",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "txs": 1,
+    "nonce": 2700,
+    "hash": "d229979651e9b42b0212dde5fdfefac926dd8b7c8781526e21591d9da62ba3a2",
+    "attempts": 2700,
+    "difficulty": 3,
+    "ts": 1761621412
+  },
+  {
+    "state": "done",
+    "claim_id": "fbefee69-9ba2-4cb4-91b1-b28d9b396431",
+    "block_index": 63,
+    "hash": "0002e321be1d2ef12d424ea22dae9c0389f9fc4382ca06884add316d84fc9eb4",
+    "attempts": 2715,
+    "ts": 1761621412
+  }
+]

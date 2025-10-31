@@ -1,0 +1,39 @@
+version: '3.8'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+    image: blockchain-api:dev
+    environment:
+      - JOB_TTL=30
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+  ui:
+    build:
+      context: .
+      dockerfile: ui/Dockerfile
+    image: blockchain-ui:dev
+    ports:
+      - "8501:8501"
+    depends_on:
+      - api
+    volumes:
+      - ./.streamlit:/root/.streamlit:ro
+  miner:
+    build:
+      context: .
+      dockerfile: miner/Dockerfile
+    image: blockchain-miner:dev
+    environment:
+      - JOB_TTL=30
+      - MINER_AUTOSTART=false
+    depends_on:
+      - api
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M

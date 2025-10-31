@@ -40,6 +40,7 @@ Milestone 1 — Core local y tests (entrega inicial)
 - API de persistencia simple: export/import de cadena a JSON en disco.
 - Tests unitarios básicos (block integrity, chain append, mining).
 - README con instrucciones para ejecutar localmente.
+- Dockerfile básico y `requirements.txt` para facilitar contenerización local (opcional en primera entrega pero incluido en Milestone 1 para acelerar pruebas en máquinas diferentes).
 - Branch: `dev` (primer PR hacia `main` cuando autorices).
 
 Milestone 2 — CLI y docs
@@ -92,6 +93,47 @@ Milestone 4 — Contenerización y ejemplos de despliegue local
 - README.md
 - PLAN_LOCAL_SIMULATOR.md   # este documento
 - .flake8, pyproject.toml, .pre-commit-config.yaml (opcionales)
+
+## Estado de tareas (Pendientes / In-Progress / Completadas)
+
+- Pendientes:
+  - Diseñar UI Streamlit (mempool, panel minado, hack)
+  - Diseño del minado y animación (loop cooperativo)
+  - Tests unitarios y validación extendida
+  - Documentación final y ejemplos
+
+- In-Progress:
+  - Definir modelos Block/Tx/Blockchain (core, hashing, validation)
+
+- Completadas:
+  - Análisis inicial y planificación (este documento actualizado)
+
+## Diagrama compacto de clases (texto)
+
+- Transaction
+  - sender: str
+  - recipient: str
+  - amount: float
+  - message: Optional[str]
+  - to_dict()/from_dict()
+
+- Block
+  - index: int
+  - timestamp: str
+  - txs: List[Transaction]
+  - prev_hash: str
+  - nonce: int
+  - hash: str
+  - compute_hash(): str
+
+- Blockchain
+  - chain: List[Block]
+  - mempool: List[Transaction]
+  - difficulty: int
+  - add_transaction(tx)
+  - mine_block()
+  - validate_chain(): (bool, List[Error])
+
 
 ## Configuración e instrucciones locales (pasos detallados)
 

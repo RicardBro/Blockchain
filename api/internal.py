@@ -211,36 +211,9 @@ def force_mine():
         t.start()
         return {"status": "started", "claim_id": claim_id}
 
-    # fallback: try to mine directly from mempool.json if present
-    mp = os.path.join(d, "mempool.json")
-    try:
-        if os.path.exists(mp):
-            with open(mp, "r", encoding="utf-8") as fh:
-                arr = json.load(fh)
-            if arr:
-                claim_id = str(__import__('uuid').uuid4())
-                fpath = os.path.join(d, f"mempool_inflight_{claim_id}.json")
-                with open(fpath + ".tmp", "w", encoding="utf-8") as out:
-                    json.dump({"ts": int(time.time()), "claim_id": claim_id, "txs": arr}, out, ensure_ascii=False)
-                os.replace(fpath + ".tmp", fpath)
-                try:
-                    os.remove(mp)
-                except Exception:
-                    pass
-                # server-side record: force_mine started on mempool
-                try:
-                    from simulator.storage import append_ui_event
-                    append_ui_event(data_dir, f"Force_mine arrancado (mempool->inflight): {claim_id}")
-                except Exception:
-                    pass
-                t = threading.Thread(target=_background_mine_using_inflight, args=(fpath, claim_id), daemon=True)
-                t.start()
-                return {"status": "started", "claim_id": claim_id}
-    except Exception:
-        pass
-
-    # nothing to mine
-    raise HTTPException(status_code=404, detail="no inflight or mempool to mine")
+    # nothing to mine if no inflight claims are present — do NOT fall back to mempool
+    # This enforces: only mine explicit inflight claims when user requests it.
+    raise HTTPException(status_code=404, detail="no inflight to mine")
 
 
 @router.get("/miner_status")

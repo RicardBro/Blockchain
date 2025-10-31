@@ -29,6 +29,7 @@ services:
     image: blockchain-miner:dev
     environment:
       - JOB_TTL=30
+      - MINER_AUTOSTART=false
     depends_on:
       - api
     deploy:

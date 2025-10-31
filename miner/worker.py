@@ -1,11 +1,24 @@
+import os
 import time
 import requests
 import json
 import hashlib
 
-API_URL = "http://api:8000"
+API_URL = os.environ.get("API_URL", "http://api:8000")
 POLL_INTERVAL = 1.0
 
+# By default do NOT auto-start mining from this worker. Control automatic behavior
+# using the MINER_AUTOSTART environment variable. This ensures the worker can be
+# running but inert for demos where the UI must drive the flow step-by-step.
+MINER_AUTOSTART = os.environ.get("MINER_AUTOSTART", "false").lower() in ("1", "true", "yes")
+
+if not MINER_AUTOSTART:
+    print("Miner autostart disabled (MINER_AUTOSTART is false). Worker will not claim or mine automatically.")
+    # Sleep indefinitely but keep process alive so container doesn't exit (useful for debugging)
+    while True:
+        time.sleep(3600)
+
+# If we reach here, autostart is enabled and worker behaves as before (legacy behavior)
 while True:
     try:
         # Claim work atomically from API

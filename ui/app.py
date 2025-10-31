@@ -174,12 +174,17 @@ with middle:
     except Exception as e:
         st.error(f"No se pudo obtener inflight: {e}")
 
-        # Force mine button
-        st.markdown("---")
-        st.subheader("Acciones de minado")
-        cols_m = st.columns([1,1])
-        if cols_m[0].button("Forzar minado", key="force_mine"):
-            try:
+    # Force mine button
+    st.markdown("---")
+    st.subheader("Acciones de minado")
+    cols_m = st.columns([1,1])
+    if cols_m[0].button("Forzar minado", key="force_mine"):
+        try:
+            # only attempt to force-mine if there are inflight claims; do not fall back to mempool
+            infl = requests.get(f"{API_URL}/jobs/inflight", timeout=2).json().get('inflight', [])
+            if not infl:
+                st.info("No hay inflight para minar. Primero reclamá trabajo con 'Claim work'.")
+            else:
                 r = requests.post(f"{API_URL}/_internal/force_mine", timeout=2)
                 if r.status_code == 202 or r.status_code == 200 or r.ok:
                     info = r.json() if r.text else {"status":"started"}
@@ -225,21 +230,21 @@ with middle:
                     ev = (time.time(), f"Forzar minado error: {r.status_code} {r.text}")
                     st.session_state['ui_log'].append(ev)
                     persist_event(*ev)
-            except Exception as e:
-                ev = (time.time(), f"Forzar minado falló: {e}")
-                st.session_state['ui_log'].append(ev)
-                persist_event(*ev)
+        except Exception as e:
+            ev = (time.time(), f"Forzar minado falló: {e}")
+            st.session_state['ui_log'].append(ev)
+            persist_event(*ev)
 
-        if cols_m[1].button("Estado minero", key="miner_status"):
-            try:
-                s = requests.get(f"{API_URL}/_internal/miner_status", timeout=2).json()
-                ev = (time.time(), f"Miner status: {s}")
-                st.session_state['ui_log'].append(ev)
-                persist_event(*ev)
-            except Exception as e:
-                ev = (time.time(), f"No se pudo obtener estado del minero: {e}")
-                st.session_state['ui_log'].append(ev)
-                persist_event(*ev)
+    if cols_m[1].button("Estado minero", key="miner_status"):
+        try:
+            s = requests.get(f"{API_URL}/_internal/miner_status", timeout=2).json()
+            ev = (time.time(), f"Miner status: {s}")
+            st.session_state['ui_log'].append(ev)
+            persist_event(*ev)
+        except Exception as e:
+            ev = (time.time(), f"No se pudo obtener estado del minero: {e}")
+            st.session_state['ui_log'].append(ev)
+            persist_event(*ev)
 
     # Timeline panel (combine ui_log + inflight + miner status)
     st.markdown("---")
@@ -264,65 +269,30 @@ with middle:
         tstr = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime(ts))
         st.markdown(f"- **{tstr}** — {msg}")
 
-    # Merkle view: allow selecting a block to render a simple merkle tree
+    # Blockchain list view: show blocks with basic metadata and transactions
     st.markdown("---")
-    st.subheader("Merkle tree viewer")
+    st.subheader("Blockchain (lista de bloques)")
     try:
         chain = requests.get(f"{API_URL}/chain", timeout=3).json()
-        blocks_opts = [f"#{b.get('index')} ({len(b.get('transactions', []))} tx)" for b in chain]
-        sel = st.selectbox('Seleccionar bloque', options=list(range(len(chain))), format_func=lambda i: blocks_opts[i] if i is not None and i < len(blocks_opts) else '')
-        if sel is not None:
-            blk = chain[sel]
-            txs = blk.get('transactions', [])
-            if not txs:
-                st.info('Este bloque no contiene transacciones')
-            else:
-                # build leaves and internal nodes, then render as an ASCII-style tree
-                import json, hashlib
-
-                def hash_leaf(tx):
-                    s = json.dumps(tx, sort_keys=True, separators=(',', ':'), ensure_ascii=False)
-                    return hashlib.sha256(s.encode('utf-8')).hexdigest()
-
-                leaves = [hash_leaf(tx) for tx in txs]
-
-                # build all levels bottom-up
-                levels = [leaves]
-                cur = list(leaves)
-                while len(cur) > 1:
-                    if len(cur) % 2 == 1:
-                        cur.append(cur[-1])
-                    nxt = []
-                    for i in range(0, len(cur), 2):
-                        nxt.append(hashlib.sha256((cur[i] + cur[i+1]).encode('utf-8')).hexdigest())
-                    levels.append(nxt)
-                    cur = nxt
-
-                # prepare ASCII tree lines (root at top)
-                def render_ascii_tree(levels):
-                    lines = []
-                    max_width = max(len(level) for level in levels)
-                    # compute indent per level
-                    total_levels = len(levels)
-                    for li in range(total_levels - 1, -1, -1):
-                        level = levels[li]
-                        indent_unit = ' ' * (2 ** (total_levels - li - 1))
-                        row_parts = []
-                        for v in level:
-                            row_parts.append(v[:10])
-                        # join with spacing to approximate tree layout
-                        line = indent_unit.join(row_parts)
-                        lines.append(line)
-                    return lines
-
-                ascii_lines = render_ascii_tree(levels)
-                st.markdown('**Merkle tree (root -> leaves) [truncated hashes]**')
-                for L in ascii_lines:
-                    st.code(L)
-                # show full root
-                st.write('Root:', levels[-1][0])
+        total = len(chain) if isinstance(chain, list) else 0
+        st.write(f"Total bloques: {total}")
+        # show each block in an expander with key metadata and transaction list
+        for b in chain:
+            idx = b.get('index')
+            ts = b.get('timestamp')
+            txs = b.get('transactions', []) or b.get('txs', []) or []
+            header = f"#{idx} — {ts} — {len(txs)} tx(s)"
+            with st.expander(header, expanded=False):
+                st.write(f"Hash: {b.get('hash')}")
+                st.write(f"Prev hash: {b.get('prev_hash')}")
+                st.write(f"Nonce: {b.get('nonce')}")
+                st.markdown("**Transacciones**")
+                if txs:
+                    st.json(txs)
+                else:
+                    st.info("Este bloque no contiene transacciones")
     except Exception as e:
-        st.error(f'No se pudo obtener cadena para Merkle: {e}')
+        st.error(f'No se pudo obtener la cadena: {e}')
 
     # Right column: Miner logs (persistent)
     st.markdown('---')

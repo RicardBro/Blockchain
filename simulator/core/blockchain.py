@@ -1,7 +1,9 @@
 import time
+import threading
 from typing import List, Tuple, Callable, Optional
 from .block import Block
 from .transaction import Transaction
+from .miner import Miner
 
 
 class Blockchain:
@@ -9,6 +11,10 @@ class Blockchain:
         self.difficulty = difficulty
         self.chain: List[Block] = []
         self.mempool: List[Transaction] = []
+        # lock to protect chain and mempool when mining in background
+        self._lock = threading.Lock()
+        # background miner instance (if started)
+        self._miner = None
         self.create_genesis_block()
 
     def create_genesis_block(self) -> Block:
@@ -81,6 +87,41 @@ class Blockchain:
             blk.timestamp = new_data["timestamp"]
         if recompute_hash:
             blk.hash = blk.compute_hash()
+
+    def _append_block(self, block: Block, num_included: int) -> None:
+        """Append a mined block to the chain in a thread-safe manner and update mempool.
+
+        num_included: number of transactions from the mempool that were included in this block.
+        If num_included is None, we assume all transactions were included.
+        """
+        with self._lock:
+            # remove included txs from mempool
+            if num_included is None:
+                self.mempool = []
+            else:
+                # guard against race: only remove up to current mempool length
+                remove_n = min(len(self.mempool), int(num_included))
+                self.mempool = self.mempool[remove_n:]
+            self.chain.append(block)
+
+    def start_mining_async(self, miner_callback: Optional[Callable[[int, str], None]] = None, max_txs: Optional[int] = None) -> None:
+        """Start background mining using the Miner helper. Non-blocking.
+
+        miner_callback will be called periodically with (nonce, hash).
+        """
+        # if already running, ignore
+        if self._miner and getattr(self._miner, "_thread", None) and self._miner._thread.is_alive():
+            return
+        self._miner = Miner(self, self.difficulty)
+        self._miner.start(miner_callback=miner_callback, max_txs=max_txs)
+
+    def stop_mining(self) -> None:
+        """Stop any running background miner."""
+        if self._miner:
+            try:
+                self._miner.stop()
+            except Exception:
+                pass
 
     def export_to_json(self, path: str) -> None:
         import json
